@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~angular-notifier/styles";
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import "~bootstrap/scss/bootstrap.scss";
+
+
+.clickable {
+  cursor:pointer;
+}
+.dropdown-menu, .showDropDown {
+  opacity: 0;
+  visibility: hidden;
+  display: block;
+  top: -10px;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.showDropDown {
+  opacity: 1;
+  top: 100%;
+  visibility: visible;
+}
