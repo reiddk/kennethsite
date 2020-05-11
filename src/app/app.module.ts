@@ -4,12 +4,19 @@ import { NgModule } from '@angular/core';
 import { HttpClientService } from './services/httpClient.service';
 import { NotificationService } from './services/notification.service';
 import { StorageService } from './services/storage.service';
+import { HttpClientModule } from '@angular/common/http';
 
 import { NotifierOptions, NotifierModule } from 'angular-notifier';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { FormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { StubComponent } from './stub/stub.component';
+import { BookViewComponent } from './book-view/book-view.component';
+import { HomeComponent } from './home/home.component';
 
 
 const customNotifierOptions: NotifierOptions = {
@@ -55,13 +62,19 @@ const customNotifierOptions: NotifierOptions = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    StubComponent,
+    BookViewComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
       AppRoutingModule,
       NotifierModule.withConfig(customNotifierOptions),
-      LoadingBarHttpClientModule
+      LoadingBarHttpClientModule,
+      PdfViewerModule,
+      FormsModule,
+      HttpClientModule
   ],
     providers: [StorageService, NotificationService, HttpClientService],
   bootstrap: [AppComponent]

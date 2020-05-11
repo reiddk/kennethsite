@@ -1,0 +1,13 @@
+<div class="container" style="margin-top:100px;">
+  <div class="row">
+    <h4>This is the personal website of Dr. Kenneth Kuttler. You can download these books as a PDF, or read them online without downloading. <br />If you view the books online the website will keep track of where you were at in each respective book so you can come back and continue reading where you left off.</h4>
+    <h5>If you have questions send me an email at <a href="matilto:klkuttler@gmail.com">klkuttler@gmail.com</a></h5>
+  </div>
+  <div class="container" *ngIf="bookInfos && bookInfos.length">
+    <div class="row">
+      <div class="col-sm-4" *ngFor="let stub of bookInfos" style="border-bottom: solid grey 1px;">
+        <app-stub [BookInfo]="stub"></app-stub>
+      </div>
+    </div>
+  </div>
+</div>

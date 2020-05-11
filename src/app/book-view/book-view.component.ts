@@ -1,0 +1,110 @@
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
+import { Subscription, interval } from 'rxjs';
+import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { StorageService, bookInfo } from '../services/storage.service';
+import { ActivatedRoute } from '@angular/router';
+import { PdfViewerComponent } from 'ng2-pdf-viewer';
+declare let ga: Function;
+
+@Component({
+    selector: 'app-book-view',
+    providers: [Location, { provide: LocationStrategy, useClass: PathLocationStrategy }],
+    templateUrl: './book-view.component.html',
+    styleUrls: ['./book-view.component.scss']
+})
+export class BookViewComponent implements OnInit, OnDestroy {
+
+    @ViewChild(PdfViewerComponent, { static: false }) private pdfComponent: PdfViewerComponent;
+
+    bookInfoSub: Subscription;
+    routerSub: Subscription;
+    regIntervalSub: Subscription;
+    bookInfos: bookInfo[] = [];
+    pdfSource: string = '';
+    pdfName: string = '';
+    pdfPage: number = 1;
+    pdfUpdated: string = '';
+    zoom: number = 1;
+    stringToSearch: string = '';
+    numberOfPages: number = null;
+    loadingBook: boolean = true;
+    mobileShow: boolean = false;
+
+    constructor(private storageService: StorageService, private route: ActivatedRoute, private location: Location) { }
+
+    search() {
+        const stringToSearch = this.stringToSearch;
+        this.pdfComponent.pdfFindController.executeCommand('find', {
+            caseSensitive: false, findPrevious: undefined, highlightAll: true, phraseSearch: true, query: stringToSearch
+        });
+    }
+
+    pdfInfo(event) {
+        this.numberOfPages = event.numPages;
+        this.loadingBook = false;
+    }
+
+    downloadedBook() {
+        ga('send', 'event', 'book-download', this.pdfName);
+    }
+
+    getPdfInfoFromRoute() {
+        if (this.bookInfos && this.bookInfos.length && this.pdfName && this.pdfPage) {
+            const book: bookInfo = this.bookInfos.find(val => {
+                return val.bookTitle === this.pdfName;
+            });
+            if (this.regIntervalSub) {
+                this.regIntervalSub.unsubscribe();
+            }
+            if (!book) {
+                return;
+            }
+            if (book.bookUrl) {
+                this.pdfSource = book.bookUrl;
+            } else {
+                return;
+            }
+            if (book.lastModifiedDate) {
+                this.pdfUpdated = book.lastModifiedDate;
+            }
+            this.regIntervalSub = interval(500).subscribe(() => {
+                this.storageService.setPageForBook(book.bookTitle, this.pdfPage.toString());
+                this.location.go(`/book/${book.bookTitle.replace(/\s/g, '-')}/${this.pdfPage.toString()}`);
+                ga('set', 'page', `/book/${book.bookTitle.replace(/\s/g, '-')}/${this.pdfPage.toString()}`);
+                ga('send', 'pageview');
+            });
+        }
+    }
+
+    ngOnInit() {
+        this.bookInfos = this.storageService.booksToInfo;
+        this.bookInfoSub = this.storageService.getupdatedBooksInfo().subscribe(out => {
+            this.bookInfos = out;
+            this.getPdfInfoFromRoute();
+        });
+        this.routerSub = this.route.url.subscribe(out => {
+            if (out.length === 3) {
+                this.pdfName = out[1].path.replace(/\-/g, ' ');
+                this.pdfPage = Number(out[2].path);
+                ga('set', 'page', `/book/${this.pdfName}/${this.pdfPage}`);
+                ga('send', 'pageview');
+                this.storageService.setPageForBook(this.pdfName, this.pdfPage.toString());
+                this.getPdfInfoFromRoute();
+            }
+        });
+  }
+
+    ngOnDestroy() {
+        if (this.bookInfoSub) {
+            this.bookInfoSub.unsubscribe();
+        }
+        if (this.routerSub) {
+            this.routerSub.unsubscribe();
+        }
+        if (this.regIntervalSub) {
+            this.regIntervalSub.unsubscribe();
+        }
+
+    }
+
+}

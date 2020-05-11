@@ -1,44 +1,31 @@
 <div class="container">
   <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
-  <a class="navbar-brand" href="/">Kenneth Kuttler</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" (click)="showDropDown = !showDropDown" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngClass]="{'show':showDropDown}">
-    <ul class="navbar-nav mr-auto">
-    <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
-    <li class="nav-item dropdown"><span class="nav-link clickable" id="navbarDropdown" (click)="showDropDown = !showDropDown" role="button">Books <i class="fa fa-sort-desc" aria-hidden="true"></i></span>
-      <div class="dropdown-menu d-none d-md-block" [ngClass]="{'showDropDown':showDropDown}" aria-labelledby="navbarDropdown">
-      <a class="dropdown-item" href="/books/AdvancedCalculusSV/x1-20001">Advanced Calculus Single Variable</a>
-      <a class="dropdown-item" href="/books/Analysis/x1-2000I">Analysis</a>
-      <a class="dropdown-item" href="/books/ComplexAnalysis/x1-3000I">Calculus of Real and Complex Variables</a>
-      <a class="dropdown-item" href="/books/ElementaryLinearAlgebra/x1-30001">Elementary Linear Algebra</a>
-      <a class="dropdown-item" href="/books/EngineeringMath/x1-20001">Engineering Math</a>
-      <a class="dropdown-item" href="/books/Linearalgebra/x1-30001">Linear Algebra</a>
-      <a class="dropdown-item" href="/books/LinearAlgebraAndAnalysis/x1-30001">Linear Algebra and Analysis</a>
-      <a class="dropdown-item" href="/books/TopicsInAnalysis/x1-2000I">Topics In Analysis</a>
-      <a class="dropdown-item" href="/books/CalculusOneAndManyVariables/x1-3000I">Calculus of One and Several Variables</a>
-        </div>
-      <div class="d-md-none dropdown-menu showDropDown" aria-labelledby="navbarDropdown">
-      <a class="dropdown-item" href="/books/AdvancedCalculusSV/x1-20001">Advanced Calculus Single Variable</a>
-      <a class="dropdown-item" href="/books/Analysis/x1-2000I">Analysis</a>
-      <a class="dropdown-item" href="/books/ComplexAnalysis/x1-3000I">Calculus of Real and Complex Variables</a>
-      <a class="dropdown-item" href="/books/ElementaryLinearAlgebra/x1-30001">Elementary Linear Algebra</a>
-      <a class="dropdown-item" href="/books/EngineeringMath/x1-20001">Engineering Math</a>
-      <a class="dropdown-item" href="/books/Linearalgebra/x1-30001">Linear Algebra</a>
-      <a class="dropdown-item" href="/books/LinearAlgebraAndAnalysis/x1-30001">Linear Algebra and Analysis</a>
-      <a class="dropdown-item" href="/books/TopicsInAnalysis/x1-2000I">Topics In Analysis</a>
-      <a class="dropdown-item" href="/books/CalculusOneAndManyVariables/x1-3000I">Calculus of One and Several Variables</a>
-        </div>
-      </li>
+    <a class="navbar-brand clickable" (click)="reroute('/')">Kenneth Kuttler</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" (click)="showDropDown = !showDropDown" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngClass]="{'show':showDropDown}">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item clickable"><a class="nav-link" (click)="reroute('/')">Home</a></li>
+        <li class="nav-item dropdown">
+          <span class="nav-link clickable" id="navbarDropdown" (click)="showDropDown = !showDropDown" role="button">Books <i class="fa fa-sort-desc" aria-hidden="true"></i></span>
+          <div class="dropdown-menu d-none d-md-block" [ngClass]="{'showDropDown':showDropDown}" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item clickable" *ngFor="let book of bookInfos" (click)="reroute(book.bookTitle, true)">{{book.bookTitle}}</a>
+          </div>
+          <div class="d-md-none dropdown-menu showDropDown" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item clickable" *ngFor="let book of bookInfos" (click)="reroute(book.bookTitle, true)">{{book.bookTitle}}</a>
+          </div>
+        </li>
       </ul>
     </div>
   </nav>
-    <ngx-loading-bar></ngx-loading-bar>
+  <ngx-loading-bar></ngx-loading-bar>
 
-    <div class="container" style="margin-top:100px;">
-      <div class="row">
-        <h4>This is the personal website of Dr. Kenneth Kuttler. You can download these books as a PDF, or read them online without downloading. If you view the books online the website will use cookies to keep track of where you were at in each respective book.</h4>
-      <h5>If you have questions send me an email at <a href="matilto:klkuttler@gmail.com">klkuttler@gmail.com</a></h5></div>
+  <router-outlet></router-outlet>
+
+  <notifier-container></notifier-container>
+  <div class="cookie-agreement" *ngIf="!agreedToCookie">
+    <div class="">This website uses cookies to improve the user experience</div>
+    <div class="">
+      <button type="button" class="btn btn-primary" (click)="setAgreedToCookies()">Agree</button>
     </div>
-
-    <notifier-container></notifier-container>
+  </div>
 </div>

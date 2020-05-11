@@ -26,7 +26,7 @@ export class HttpClientService implements OnDestroy {
     private storageService: StorageService,
     private http: HttpClient,
     private notificationService: NotificationService) {
-  }
+    }
 
   post(serviceUrl: string, params: string = '',
     yardDates: any,
