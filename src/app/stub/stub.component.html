@@ -1,6 +1,6 @@
 <div class="row" style="margin:5px 0px;">
   <div class="col-9 ">
-    <h3 class="book-stub draw-border noselect" style="padding:5px 10px;" (click)="reroute(BookInfo.bookTitle)">{{BookInfo.bookTitle}}</h3>
+    <h3 class="book-stub draw-border noselect" style="padding:5px 10px;" (click)="reroute(BookInfo.bookTitle)"><a href="/{{bookParsed}}/1" disabled></a>{{BookInfo.bookTitle}}</h3>
     <h5 *ngIf="pageNum !== 1">Currently at page {{pageNum}}</h5>
     <div class="col-3" style="padding: 10px;"><a target="_blank" href="{{BookInfo.bookUrl}}" (click)="downloadedBook()" download>Download PDF</a></div>
   </div>

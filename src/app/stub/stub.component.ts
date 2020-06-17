@@ -12,6 +12,7 @@ export class StubComponent implements OnInit {
 
     @Input() bookIndex: number = -1;
     @Input() BookInfo: bookInfo = null;
+    bookParsed: string = '';
     pageNum: number = 1;
 
     constructor(private storageService: StorageService,
@@ -30,6 +31,7 @@ export class StubComponent implements OnInit {
     ngOnInit() {
         if (this.BookInfo && this.BookInfo.bookTitle) {
             const tempPageNum = this.storageService.getPageForBook(this.BookInfo.bookTitle);
+            this.bookParsed = this.BookInfo.bookTitle.replace(/\s/g, '-');
             if (tempPageNum) {
                 this.pageNum = Number(tempPageNum);
             }

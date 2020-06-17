@@ -35,3 +35,37 @@
 .clickable {
   cursor:pointer;
 }
+.arrow {
+  display: inline-block;
+  padding: 6px;
+}
+
+.black {
+  border: solid black;
+  border-width: 0 6px 6px 0;
+}
+
+.white {
+  border: solid white;
+  border-width: 0 6px 6px 0;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}

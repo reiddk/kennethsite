@@ -22,6 +22,9 @@
           <li class="form-inline my-2 my-lg-0" *ngIf="loadingBook">
             <div class="lds-hourglass"></div>
           </li>
+          <li class="form-inline my-2 my-lg-0">&nbsp;</li>
+          <li class="form-inline my-2 my-lg-0 clickable" (click)="nextPrevPage(-1)"><i class="arrow left black"></i><span>Prev&nbsp;&nbsp;</span><a href="/{{bookURLname}}/{{pdfPage-1}}"></a></li>
+          <li class="form-inline my-2 my-lg-0 clickable" (click)="nextPrevPage(1)"><span>&nbsp;&nbsp;Next</span><i class="arrow right black"></i><a href="/{{bookURLname}}/{{pdfPage+1}}"></a></li>
         </ul>
       </div>
     </nav>

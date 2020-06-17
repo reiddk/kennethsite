@@ -1,6 +1,6 @@
 <div class="container">
   <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
-    <a class="navbar-brand clickable" (click)="reroute('/')">Kenneth Kuttler</a>
+    <a class="navbar-brand clickable" (click)="reroute('/')"><span *ngIf="atHome">Kenneth Kuttler</span><i *ngIf="!atHome" class="arrow left white"></i></a><a href="/" style="display:none;"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" (click)="showDropDown = !showDropDown" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngClass]="{'show':showDropDown}">
       <ul class="navbar-nav mr-auto">

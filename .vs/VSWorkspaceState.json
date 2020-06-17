@@ -3,8 +3,12 @@
     "",
     "\\src",
     "\\src\\app",
+    "\\src\\app\\book-view",
+    "\\src\\app\\home",
+    "\\src\\app\\services",
+    "\\src\\app\\stub",
     "\\src\\environments"
   ],
-  "SelectedNode": "\\src\\app\\services",
+  "SelectedNode": "\\src\\app\\app.component.scss",
   "PreviewInSolutionExplorer": false
 }

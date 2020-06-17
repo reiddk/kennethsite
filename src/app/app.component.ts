@@ -19,6 +19,7 @@ export class AppComponent implements OnInit, OnDestroy {
     currentBookTitle: string = '';
     newPageSub: Subscription;
     agreedToCookie: boolean = false;
+    atHome: boolean = true;
 
     constructor(private storageService: StorageService,
         private httpService: HttpClientService,
@@ -45,6 +46,11 @@ export class AppComponent implements OnInit, OnDestroy {
             if (event instanceof NavigationEnd) {
                 ga('set', 'page', event.urlAfterRedirects);
                 ga('send', 'pageview');
+                if (event.url === "/") {
+                    this.atHome = true;
+                } else {
+                    this.atHome = false;
+                }
             }
         });
         this.bookInfos = this.storageService.booksToInfo;

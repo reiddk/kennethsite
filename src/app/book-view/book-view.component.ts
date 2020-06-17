@@ -26,9 +26,10 @@ export class BookViewComponent implements OnInit, OnDestroy {
     pdfUpdated: string = '';
     zoom: number = 1;
     stringToSearch: string = '';
-    numberOfPages: number = null;
+    numberOfPages: number = 25;
     loadingBook: boolean = true;
     mobileShow: boolean = false;
+    bookURLname: string = '';
 
     constructor(private storageService: StorageService, private route: ActivatedRoute, private location: Location) { }
 
@@ -37,6 +38,12 @@ export class BookViewComponent implements OnInit, OnDestroy {
         this.pdfComponent.pdfFindController.executeCommand('find', {
             caseSensitive: false, findPrevious: undefined, highlightAll: true, phraseSearch: true, query: stringToSearch
         });
+    }
+
+    nextPrevPage(num) {
+        if (this.pdfPage + num > 0 && this.pdfPage + num <= this.numberOfPages) {
+            this.pdfPage += num;
+        }
     }
 
     pdfInfo(event) {
@@ -85,6 +92,7 @@ export class BookViewComponent implements OnInit, OnDestroy {
         this.routerSub = this.route.url.subscribe(out => {
             if (out.length === 3) {
                 this.pdfName = out[1].path.replace(/\-/g, ' ');
+                this.bookURLname = out[1].path;
                 this.pdfPage = Number(out[2].path);
                 ga('set', 'page', `/book/${this.pdfName}/${this.pdfPage}`);
                 ga('send', 'pageview');
