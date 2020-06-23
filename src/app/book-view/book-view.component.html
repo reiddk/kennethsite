@@ -1,32 +1,37 @@
 <div class="container" style="margin-top:100px;">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand">{{pdfName}}</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" (click)="mobileShow=!mobileShow">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand">{{pdfName}}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" (click)="mobileShow=!mobileShow">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngClass]="{'show':mobileShow}">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item" *ngIf="numberOfPages">
-            {{pdfPage}}/{{numberOfPages}}&nbsp;&nbsp;
-          </li>
-          <li class="nav-item">
-            <a target="_blank" href="{{pdfSource}}" (click)="downloadedBook()" download>Download PDF</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav mr-auto">
-          <li class="form-inline my-2 my-lg-0">
-            <input [(ngModel)]="stringToSearch" (keyup.enter)="search()" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="search()">Search</button>
-          </li>
-          <li class="form-inline my-2 my-lg-0" *ngIf="loadingBook">
-            <div class="lds-hourglass"></div>
-          </li>
-          <li class="form-inline my-2 my-lg-0">&nbsp;</li>
-          <li class="form-inline my-2 my-lg-0 clickable" (click)="nextPrevPage(-1)"><i class="arrow left black"></i><span>Prev&nbsp;&nbsp;</span><a href="/{{bookURLname}}/{{pdfPage-1}}"></a></li>
-          <li class="form-inline my-2 my-lg-0 clickable" (click)="nextPrevPage(1)"><span>&nbsp;&nbsp;Next</span><i class="arrow right black"></i><a href="/{{bookURLname}}/{{pdfPage+1}}"></a></li>
-        </ul>
-      </div>
-    </nav>
-  <pdf-viewer (after-load-complete)="pdfInfo($event)" [zoom]="zoom" [original-size]="false" [autoresize]="true" [(page)]="pdfPage" [show-all]="true" [src]="pdfSource" [render-text]="true" [stick-to-page]="true" [external-link-target]="'blank'"></pdf-viewer>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngClass]="{'show':mobileShow}">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" *ngIf="numberOfPages">
+          {{pdfPage}}/{{numberOfPages}}&nbsp;&nbsp;
+        </li>
+        <li class="nav-item">
+          <a target="_blank" href="{{pdfSource}}" (click)="downloadedBook()" download>Download PDF</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav mr-auto">
+        <li class="form-inline my-2 my-lg-0">
+          <input [(ngModel)]="stringToSearch" (keyup.enter)="search()" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="search()">Search</button>
+        </li>
+        <li class="form-inline my-2 my-lg-0" *ngIf="loadingBook">
+          <div class="lds-hourglass"></div>
+        </li>
+        <li class="form-inline my-2 my-lg-0">&nbsp;</li>
+        <li class="form-inline my-2 my-lg-0 clickable" (click)="nextPrevPage(-1)"><i class="arrow left black"></i><span>Prev&nbsp;&nbsp;</span><a href="/{{bookURLname}}/{{pdfPage-1}}"></a></li>
+        <li class="form-inline my-2 my-lg-0 clickable" (click)="nextPrevPage(1)"><span>&nbsp;&nbsp;Next</span><i class="arrow right black"></i><a href="/{{bookURLname}}/{{pdfPage+1}}"></a></li>
+      </ul>
+    </div>
+  </nav>
+  <div *ngIf="loadingBook">
+    <pdf-viewer [zoom]="zoom" [original-size]="false" [autoresize]="true" [show-all]="true" [src]="loadingBookSource" [render-text]="true" [stick-to-page]="true"></pdf-viewer>
+  </div>
+  <div style="{'display':(loadingBook)?'none':'block'}">
+    <pdf-viewer (after-load-complete)="pdfInfo($event)" [zoom]="zoom" [original-size]="false" [autoresize]="true" [(page)]="pdfPage" [show-all]="true" [src]="pdfSource" [render-text]="true" [stick-to-page]="true" [external-link-target]="'blank'"></pdf-viewer>
+  </div>
 </div>

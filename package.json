@@ -27,6 +27,8 @@
     "bootstrap": "^4.4.1",
     "ng2-pdf-viewer": "^6.3.0",
     "ngx-loading-bar": "0.0.9",
+    "node-fetch": "^2.6.0",
+    "pdf-lib": "^1.8.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"

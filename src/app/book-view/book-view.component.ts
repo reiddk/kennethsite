@@ -21,6 +21,7 @@ export class BookViewComponent implements OnInit, OnDestroy {
     regIntervalSub: Subscription;
     bookInfos: bookInfo[] = [];
     pdfSource: string = '';
+    loadingBookSource: string = '';
     pdfName: string = '';
     pdfPage: number = 1;
     pdfUpdated: string = '';
@@ -75,10 +76,12 @@ export class BookViewComponent implements OnInit, OnDestroy {
                 this.pdfUpdated = book.lastModifiedDate;
             }
             this.regIntervalSub = interval(500).subscribe(() => {
+                if (this.storageService.getPageForBook(book.bookTitle) !== this.pdfPage.toString()) {
+                  ga('set', 'page', `/book/${book.bookTitle.replace(/\s/g, '-')}/${this.pdfPage.toString()}`);
+                  ga('send', 'pageview');
+                }
                 this.storageService.setPageForBook(book.bookTitle, this.pdfPage.toString());
                 this.location.go(`/book/${book.bookTitle.replace(/\s/g, '-')}/${this.pdfPage.toString()}`);
-                ga('set', 'page', `/book/${book.bookTitle.replace(/\s/g, '-')}/${this.pdfPage.toString()}`);
-                ga('send', 'pageview');
             });
         }
     }
@@ -94,6 +97,7 @@ export class BookViewComponent implements OnInit, OnDestroy {
                 this.pdfName = out[1].path.replace(/\-/g, ' ');
                 this.bookURLname = out[1].path;
                 this.pdfPage = Number(out[2].path);
+                this.loadingBookSource = `/assets/${out[1].path}${this.pdfPage-1}.pdf`;
                 ga('set', 'page', `/book/${this.pdfName}/${this.pdfPage}`);
                 ga('send', 'pageview');
                 this.storageService.setPageForBook(this.pdfName, this.pdfPage.toString());
