@@ -2,6 +2,7 @@
 const { PDFDocument, StandardFonts, rgb } = require('pdf-lib');
 const fs = require('fs');
 const fetch = require('node-fetch');
+const { exec } = require("child_process");
 
 
 
@@ -74,6 +75,19 @@ async function processBook(pdfDoc, bookInfo) {
                 resolve();
             });
         }).catch(e => console.log(e));
+        
+        await new Promise((resolve, reject) => {
+            exec(`pdftohtml -enc UTF-8 -noframes ${folderLoc + '/' + bookInfo.bookTitle.replace(/\s/g, '-') + String(i) + '.pdf'} ${folderLoc + '/' + bookInfo.bookTitle.replace(/\s/g, '-') + String(i) + '.html'}`, (error, stdout, stderr) => {    
+                if (error) {
+                    console.log(`error: ${error.message}`);
+                }
+                if (stderr) {
+                    console.log(`stderr: ${stderr}`);
+                }
+                resolve();
+            });
+        });
+
     }
 
 

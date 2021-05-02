@@ -1,14 +1,16 @@
 {
   "ExpandedNodes": [
     "",
+    "\\splitpdfs",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\book-view",
+    "\\src\\app\\config",
     "\\src\\app\\home",
     "\\src\\app\\services",
     "\\src\\app\\stub",
+    "\\src\\assets",
     "\\src\\environments"
   ],
-  "SelectedNode": "\\src\\app\\app.component.scss",
+  "SelectedNode": "\\splitpdfs\\splitpdf.js",
   "PreviewInSolutionExplorer": false
 }
