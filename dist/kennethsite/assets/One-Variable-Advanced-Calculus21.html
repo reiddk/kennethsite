@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>../dist/kennethsite/assets/One-Variable-Advanced-Calculus21</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="generator" content="pdftohtml 0.36"/>
+<meta name="date" content="2021-05-02T16:35:20+00:00"/>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<a name=1></a>22<br/>
+CHAPTER&#160;2.&#160;THE&#160;REAL&#160;AND&#160;COMPLEX&#160;NUMBERS<br/>
+Theorem&#160;2.8.2&#160;Let&#160;m,&#160;n&#160;be&#160;two&#160;positive&#160;integers&#160;and&#160;define<br/>
+S&#160;≡&#160;{xm&#160;+&#160;yn&#160;∈&#160;N&#160;:&#160;x,&#160;y&#160;∈&#160;Z&#160;}&#160;.<br/>
+Then&#160;the&#160;smallest&#160;number&#160;in&#160;S&#160;is&#160;the&#160;greatest&#160;common&#160;divisor,&#160;denoted&#160;by&#160;(m,&#160;n)&#160;.<br/>
+Proof:&#160;First&#160;note&#160;that&#160;both&#160;m&#160;and&#160;n&#160;are&#160;in&#160;S&#160;so&#160;it&#160;is&#160;a&#160;nonempty&#160;set&#160;of&#160;positive<br/>
+integers.&#160;By&#160;well&#160;ordering,&#160;there&#160;is&#160;a&#160;smallest&#160;element&#160;of&#160;S,&#160;called&#160;p&#160;=&#160;x0m&#160;+&#160;y0n.&#160;Either<br/>p&#160;divides&#160;m&#160;or&#160;it&#160;does&#160;not.&#160;If&#160;p&#160;does&#160;not&#160;divide&#160;m,&#160;then&#160;by&#160;Theorem&#160;<a href="">2.7.11,&#160;</a>m&#160;=&#160;pq&#160;+&#160;r<br/>where&#160;0&#160;&lt;&#160;r&#160;&lt;&#160;p.&#160;Thus&#160;m&#160;=&#160;(x0m&#160;+&#160;y0n)&#160;q&#160;+&#160;r&#160;and&#160;so,&#160;solving&#160;for&#160;r,<br/>
+r&#160;=&#160;m&#160;(1&#160;−&#160;x0)&#160;+&#160;(−y0q)&#160;n&#160;∈&#160;S.<br/>
+However,&#160;this&#160;is&#160;a&#160;contradiction&#160;because&#160;p&#160;was&#160;the&#160;smallest&#160;element&#160;of&#160;S.&#160;Thus&#160;p|m.<br/>Similarly&#160;p|n.<br/>
+Now&#160;suppose&#160;q&#160;divides&#160;both&#160;m&#160;and&#160;n.&#160;Then&#160;m&#160;=&#160;qx&#160;and&#160;n&#160;=&#160;qy&#160;for&#160;integers,&#160;x&#160;and<br/>
+y.&#160;Therefore,<br/>
+p&#160;=&#160;mx0&#160;+&#160;ny0&#160;=&#160;x0qx&#160;+&#160;y0qy&#160;=&#160;q&#160;(x0x&#160;+&#160;y0y)<br/>
+showing&#160;q|p.&#160;Therefore,&#160;p&#160;=&#160;(m,&#160;n).&#160;<br/>
+This&#160;amazing&#160;theorem&#160;will&#160;now&#160;be&#160;used&#160;to&#160;prove&#160;a&#160;fundamental&#160;property&#160;of&#160;prime<br/>
+numbers&#160;which&#160;leads&#160;to&#160;the&#160;fundamental&#160;theorem&#160;of&#160;arithmetic,&#160;the&#160;major&#160;theorem<br/>which&#160;says&#160;every&#160;integer&#160;can&#160;be&#160;factored&#160;as&#160;a&#160;product&#160;of&#160;primes.<br/>
+Theorem&#160;2.8.3&#160;If&#160;p&#160;is&#160;a&#160;prime&#160;and&#160;p|ab&#160;then&#160;either&#160;p|a&#160;or&#160;p|b.<br/>
+Proof:&#160;Suppose&#160;p&#160;does&#160;not&#160;divide&#160;a.&#160;Then&#160;since&#160;p&#160;is&#160;prime,&#160;the&#160;only&#160;factors&#160;of&#160;p<br/>
+are&#160;1&#160;and&#160;p&#160;so&#160;follows&#160;(p,&#160;a)&#160;=&#160;1&#160;and&#160;therefore,&#160;there&#160;exists&#160;integers,&#160;x&#160;and&#160;y&#160;such&#160;that<br/>1&#160;=&#160;ax&#160;+&#160;yp.&#160;Multiplying&#160;this&#160;equation&#160;by&#160;b&#160;yields&#160;b&#160;=&#160;abx&#160;+&#160;ybp.&#160;Since&#160;p|ab,&#160;ab&#160;=&#160;pz<br/>for&#160;some&#160;integer&#160;z.&#160;Therefore,&#160;b&#160;=&#160;abx&#160;+&#160;ybp&#160;=&#160;pzx&#160;+&#160;ybp&#160;=&#160;p&#160;(xz&#160;+&#160;yb)&#160;and&#160;this&#160;shows<br/>p&#160;divides&#160;b.&#160;<br/>
+Theorem&#160;2.8.4&#160;(Fundamental&#160;theorem&#160;of&#160;arithmetic)&#160;Let&#160;a&#160;∈&#160;N\&#160;{1}.&#160;Then<br/>a&#160;=&#160;Qn<br/>
+p<br/>
+i=1<br/>
+i&#160;where&#160;pi&#160;are&#160;all&#160;prime&#160;numbers.&#160;Furthermore,&#160;this&#160;prime&#160;factorization&#160;is<br/>
+unique&#160;except&#160;for&#160;the&#160;order&#160;of&#160;the&#160;factors.<br/>
+Proof:&#160;If&#160;a&#160;equals&#160;a&#160;prime&#160;number,&#160;the&#160;prime&#160;factorization&#160;clearly&#160;exists.&#160;In&#160;par-<br/>
+ticular&#160;the&#160;prime&#160;factorization&#160;exists&#160;for&#160;the&#160;prime&#160;number&#160;2.&#160;Assume&#160;this&#160;theorem&#160;is<br/>true&#160;for&#160;all&#160;a&#160;≤&#160;n&#160;−&#160;1.&#160;If&#160;n&#160;is&#160;a&#160;prime,&#160;then&#160;it&#160;has&#160;a&#160;prime&#160;factorization.&#160;On&#160;the&#160;other<br/>hand,&#160;if&#160;n&#160;is&#160;not&#160;a&#160;prime,&#160;then&#160;there&#160;exist&#160;two&#160;integers&#160;k&#160;and&#160;m&#160;such&#160;that&#160;n&#160;=&#160;km&#160;where<br/>each&#160;of&#160;k&#160;and&#160;m&#160;are&#160;less&#160;than&#160;n.&#160;Therefore,&#160;each&#160;of&#160;these&#160;is&#160;no&#160;larger&#160;than&#160;n&#160;−&#160;1&#160;and<br/>consequently,&#160;each&#160;has&#160;a&#160;prime&#160;factorization.&#160;Thus&#160;so&#160;does&#160;n.&#160;It&#160;remains&#160;to&#160;argue&#160;the<br/>prime&#160;factorization&#160;is&#160;unique&#160;except&#160;for&#160;order&#160;of&#160;the&#160;factors.<br/>
+Suppose&#160;Qn<br/>
+p<br/>
+q<br/>
+i=1<br/>
+i&#160;=&#160;Qm<br/>
+j=1<br/>
+j&#160;where&#160;the&#160;pi&#160;and&#160;qj&#160;are&#160;all&#160;prime,&#160;there&#160;is&#160;no&#160;way&#160;to<br/>
+reorder&#160;the&#160;qk&#160;such&#160;that&#160;m&#160;=&#160;n&#160;and&#160;pi&#160;=&#160;qi&#160;for&#160;all&#160;i,&#160;and&#160;n&#160;+&#160;m&#160;is&#160;the&#160;smallest&#160;positive<br/>integer&#160;such&#160;that&#160;this&#160;happens.&#160;Then&#160;by&#160;Theorem&#160;<a href="">2.8.3,&#160;</a>p1|qj&#160;for&#160;some&#160;j.&#160;Since&#160;these<br/>are&#160;prime&#160;numbers&#160;this&#160;requires&#160;p1&#160;=&#160;qj.&#160;Reordering&#160;if&#160;necessary&#160;it&#160;can&#160;be&#160;assumed&#160;that<br/>qj&#160;=&#160;q1.&#160;Then&#160;dividing&#160;both&#160;sides&#160;by&#160;p1&#160;=&#160;q1,&#160;Qn−1&#160;p<br/>
+q<br/>
+i=1<br/>
+i+1&#160;=&#160;Qm−1<br/>
+j=1<br/>
+j+1.&#160;Since&#160;n&#160;+&#160;m&#160;was<br/>
+as&#160;small&#160;as&#160;possible&#160;for&#160;the&#160;theorem&#160;to&#160;fail,&#160;it&#160;follows&#160;that&#160;n&#160;−&#160;1&#160;=&#160;m&#160;−&#160;1&#160;and&#160;the&#160;prime<br/>numbers,&#160;q2,&#160;·&#160;·&#160;·&#160;,&#160;qm&#160;can&#160;be&#160;reordered&#160;in&#160;such&#160;a&#160;way&#160;that&#160;pk&#160;=&#160;qk&#160;for&#160;all&#160;k&#160;=&#160;2,&#160;·&#160;·&#160;·&#160;,&#160;n.<br/>Hence&#160;pi&#160;=&#160;qi&#160;for&#160;all&#160;i&#160;because&#160;it&#160;was&#160;already&#160;argued&#160;that&#160;p1&#160;=&#160;q1,&#160;and&#160;this&#160;results&#160;in&#160;a<br/>contradiction.&#160;<br/>
+<hr/>
+</body>
+</html>
