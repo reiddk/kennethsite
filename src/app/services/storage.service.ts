@@ -7,6 +7,9 @@ export interface bookInfo {
     bookTitle: string;
     bookUrl: string;
     lastModifiedDate?: string;
+    bookCover?: string;
+    purchaseLink?: string;
+    purchaseMessage?: string;
 }
 
 @Injectable()
@@ -38,7 +41,10 @@ export class StorageService {
         {
             bookTitle: 'Elementary Linear Algebra',
             bookUrl: 'https://kennethbooks.s3.us-east-2.amazonaws.com/books/ElementaryLinearAlgebra/ElementaryLinearAlgebra.pdf',
-            lastModifiedDate: ''
+            lastModifiedDate: '',
+            bookCover: 'https://kennethbooks.s3.us-east-2.amazonaws.com/cover/linear-algebra.jpg',
+            purchaseLink: 'https://www.amazon.com/dp/B09FC8CLFK?ref_=pe_3052080_397514860',
+            purchaseMessage: 'Purchase a physical copy'
         },
         {
             bookTitle: 'Engineering Math',

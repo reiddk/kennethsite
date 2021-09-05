@@ -3,11 +3,15 @@
 @import "~@ng-select/ng-select/themes/default.theme.css";
 @import "~bootstrap/scss/bootstrap.scss";
 
-
-.clickable {
-  cursor:pointer;
+pdf-viewer {
+  display: block;
+  height: 85vh !important;
 }
-.dropdown-menu, .showDropDown {
+.clickable {
+  cursor: pointer;
+}
+.dropdown-menu,
+.showDropDown {
   opacity: 0;
   visibility: hidden;
   display: block;
@@ -33,7 +37,7 @@
                                   supported by Chrome, Opera and Firefox */
 }
 .clickable {
-  cursor:pointer;
+  cursor: pointer;
 }
 .arrow {
   display: inline-block;
