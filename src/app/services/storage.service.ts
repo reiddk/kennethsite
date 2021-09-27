@@ -10,6 +10,7 @@ export interface bookInfo {
     bookCover?: string;
     purchaseLink?: string;
     purchaseMessage?: string;
+    warning?: string;
 }
 
 @Injectable()
@@ -21,7 +22,10 @@ export class StorageService {
         {
             bookTitle: 'One Variable Advanced Calculus',
             bookUrl: 'https://kennethbooks.s3.us-east-2.amazonaws.com/books/AdvancedCalculusSV/AdvancedCalculusSV.pdf',
-            lastModifiedDate: ''
+            lastModifiedDate: '',
+            bookCover: 'https://kennethbooks.s3.us-east-2.amazonaws.com/cover/single-variable-advanced.jpg',
+            purchaseLink: 'https://www.amazon.com/dp/B09GZM9JMR?ref_=pe_3052080_397514860',
+            purchaseMessage: 'Purchase a physical copy'
         },
         {
             bookTitle: 'Real and Abstract Analysis',
@@ -64,7 +68,8 @@ export class StorageService {
         {
             bookTitle: 'Topics In Analysis',
             bookUrl: 'https://kennethbooks.s3.us-east-2.amazonaws.com/books/TopicsInAnalysis/TopicsInAnalysis.pdf',
-            lastModifiedDate: ''
+            lastModifiedDate: '',
+            warning: 'It is best to avoid the Topics in Analysis collection unless  you are interested in something which is only found there. Most things of interest are presented better in the other books.'
         }
     ];
 

@@ -31,6 +31,8 @@ export class BookViewComponent implements OnInit, OnDestroy {
     loadingBook: boolean = true;
     mobileShow: boolean = false;
     bookURLname: string = '';
+    warning: string = '';
+    warningShow: boolean = true;
 
     constructor(private storageService: StorageService, private route: ActivatedRoute, private location: Location) { }
 
@@ -71,6 +73,12 @@ export class BookViewComponent implements OnInit, OnDestroy {
                 this.pdfSource = book.bookUrl;
             } else {
                 return;
+            }
+            if (book.warning) {
+                this.warning = book.warning;
+                setTimeout(() => {
+                    this.warningShow = false;
+                }, 10000);
             }
             if (book.lastModifiedDate) {
                 this.pdfUpdated = book.lastModifiedDate;
