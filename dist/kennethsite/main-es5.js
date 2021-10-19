@@ -1929,7 +1929,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }, {
           bookTitle: 'Calculus of One and Many Variables',
           bookUrl: 'https://kennethbooks.s3.us-east-2.amazonaws.com/books/CalculusOneAndManyVariables/CalculusOneAndManyVariables.pdf',
-          lastModifiedDate: ''
+          lastModifiedDate: '',
+          bookCover: 'https://kennethbooks.s3.us-east-2.amazonaws.com/cover/calculus-one-many.jpg',
+          purchaseLink: 'https://www.amazon.com/dp/B09JJGWSP6?ref_=pe_3052080_397514860',
+          purchaseMessage: 'Purchase a physical copy'
         }, {
           bookTitle: 'Calculus of Real and Complex Variables',
           bookUrl: 'https://kennethbooks.s3.us-east-2.amazonaws.com/books/ComplexAnalysis/ComplexAnalysis.pdf',
