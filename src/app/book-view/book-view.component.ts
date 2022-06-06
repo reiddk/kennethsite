@@ -107,6 +107,7 @@ export class BookViewComponent implements OnInit, OnDestroy {
             this.bookInfos = out;
             this.getPdfInfoFromRoute();
         });
+        console.log('this ran');
         this.routerSub = this.route.url.subscribe(out => {
             if (out.length === 3) {
                 this.pdfName = out[1].path.replace(/\-/g, ' ');
