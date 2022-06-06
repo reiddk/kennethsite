@@ -223,3 +223,18 @@ pdf-viewer {
     display:none;
   }
 }
+
+.navbar-brand {
+  white-space: initial;
+  font-size:15px;
+  line-height: 1;
+  @media (max-width: 768px)
+  {
+      font-size:12px;
+  }
+} 
+
+.copy-link {
+  line-height: 1;
+  font-size: 12px;
+}

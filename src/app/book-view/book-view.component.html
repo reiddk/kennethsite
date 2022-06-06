@@ -20,11 +20,12 @@
         </li>
         <li class="navigation-item clickable left-arrow" [ngStyle]="{opacity: loadingBook?0:1}" (click)="nextPrevPage(-1)"><i class="arrow left black"></i><span class="prev-span">Prev</span><a href="/{{bookURLname}}/{{pdfPage-1}}"></a></li>
         <li class="navigation-item clickable right-arrow"[ngStyle]="{opacity: loadingBook?0:1}" (click)="nextPrevPage(1)"><span  class="next-span">Next</span><i class="arrow right black"></i><a href="/{{bookURLname}}/{{pdfPage+1}}"></a></li>
-        <li class="navigation-item" [ngStyle]="{opacity: loadingBook?1:0}" style="position:relative;width:60px;">
-          <div class="loading-progress-container">
+        <li class="navigation-item" style="position:relative;width:60px;">
+          <div class="loading-progress-container" *ngIf="loadingBook">
             <div class="loading-progress" [ngStyle]="{width: loadingPercentage}"></div>
           </div>
-          <div class="loading-percent">{{loadingPercentage}}</div>
+          <div class="loading-percent" *ngIf="loadingBook">{{loadingPercentage}}</div>
+          <div *ngIf="!loadingBook" ><button class="btn copy-link" title="Click here to copy the link to this page" [ngStyle]="{color: linkCopiedText==='Copy Link'?'black':'green'}" (click)="copyLink()">{{linkCopiedText}}</button></div>
         </li>
       </ul>
     </div>

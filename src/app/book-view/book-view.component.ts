@@ -33,6 +33,7 @@ export class BookViewComponent implements OnInit, OnDestroy {
     bookURLname: string = '';
     warning: string = '';
     loadingPercentage: string = '0%';
+    linkCopiedText: string = 'Copy Link';
     warningShow: boolean = true;
 
     constructor(private storageService: StorageService, private route: ActivatedRoute, private location: Location) { }
@@ -63,6 +64,53 @@ export class BookViewComponent implements OnInit, OnDestroy {
 
     downloadedBook() {
         ga('send', 'event', 'book-download', this.pdfName);
+    }
+
+    linkCopied() {
+        this.linkCopiedText = 'Link was copied!';
+        setTimeout(() => {
+            this.linkCopiedText = 'Copy Link';
+        }, 3000);
+    }
+
+    fallbackCopyTextToClipboard(text) {
+        var textArea = document.createElement("textarea");
+        textArea.value = text;
+        
+        // Avoid scrolling to bottom
+        textArea.style.top = "0";
+        textArea.style.left = "0";
+        textArea.style.position = "fixed";
+      
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+      
+        try {
+          var successful = document.execCommand('copy');
+          var msg = successful ? 'successful' : 'unsuccessful';
+          this.linkCopied();
+        } catch (err) {
+          console.error('Fallback: Oops, unable to copy', err);
+        }
+      
+        document.body.removeChild(textArea);
+      }
+
+      copyTextToClipboard(text) {
+        if (!navigator.clipboard) {
+          this.fallbackCopyTextToClipboard(text);
+          return;
+        }
+        navigator.clipboard.writeText(text).then(() => {
+          this.linkCopied();
+        }, function(err) {
+          console.error('Async: Could not copy text: ', err);
+        });
+      }
+
+    copyLink () {
+        this.copyTextToClipboard(location.href)
     }
 
     getPdfInfoFromRoute() {
@@ -107,7 +155,6 @@ export class BookViewComponent implements OnInit, OnDestroy {
             this.bookInfos = out;
             this.getPdfInfoFromRoute();
         });
-        console.log('this ran');
         this.routerSub = this.route.url.subscribe(out => {
             if (out.length === 3) {
                 this.pdfName = out[1].path.replace(/\-/g, ' ');
