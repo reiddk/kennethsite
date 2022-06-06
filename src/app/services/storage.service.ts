@@ -73,6 +73,11 @@ export class StorageService {
             bookUrl: 'https://kennethbooks.s3.us-east-2.amazonaws.com/books/TopicsInAnalysis/TopicsInAnalysis.pdf',
             lastModifiedDate: '',
             warning: 'It is best to avoid the Topics in Analysis collection unless  you are interested in something which is only found there. Most things of interest are presented better in the other books.'
+        },
+        {
+            bookTitle: 'Interrogation of Hiroshi Oshima',
+            bookUrl: 'https://kennethbooks.s3.us-east-2.amazonaws.com/books/OshimaInterrogation/OshimaInterogation+(1).pdf',
+            lastModifiedDate: ''
         }
     ];
 

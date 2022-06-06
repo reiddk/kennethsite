@@ -58,3 +58,163 @@ pdf-viewer {
 .warning-show {
   max-height: 150px;
 }
+.loading-progress-container {
+  width:60px;
+  height:6px;
+  border: 1px black solid;
+  position:absolute;
+  top: 0px;
+}
+.loading-progress {
+  width: 0%;
+  background-color: black;
+  height: 5px;
+}
+.loading-percent {
+  font-weight: bold;
+  text-align: center;
+  width: 60px;
+  padding: 5px;
+}
+
+.navigationbar-wrapper {
+  background-color:#f8f9fa;
+  display:flex;
+}
+.cell-one {
+  flex: 1;
+  height: 60px;
+  @media (max-width: 768px) {
+    height:45px;
+  }
+}
+.cell-two {
+  flex: 3;
+  @media (max-width: 768px) {
+    height:45px;
+  }
+}
+.navigation-wrapper {
+  list-style: none;
+  display: -webkit-box;
+  display: flex;
+  margin: 0px;
+  align-items: center;
+  justify-content: center;
+  @media (max-width: 768px) {
+    height:45px;
+  }
+  @media (max-width: 575px) {
+    padding-left:0px;
+  }
+}
+.navigation-item {
+  flex: 1;
+  text-align:center;
+  padding:0px 2px;
+}
+.search-wrapper {
+  flex:3;
+  display:flex;
+  @media (max-width: 575px) {
+    flex:6;
+  }
+}
+.left-arrow {
+  @media (max-width: 580px) {
+    display:none;
+  } 
+}
+.right-arrow {
+  @media (max-width: 580px) {
+    display:none;
+  }
+}
+.pdf-word {
+  @media (max-width: 580px) {
+    display:none;
+  }
+}
+.prev-span {
+  font-size: 12px;
+  font-weight: bold;
+  @media (max-width: 630px) {
+    font-size:10px;
+  }
+}
+.next-span {
+  font-size: 12px;
+  font-weight: bold;
+  @media (max-width: 630px) {
+    font-size:10px;
+  }
+}
+.navigation-container {
+  margin-top:53px;
+  @media (max-width: 768px) {
+    font-size:12px;
+  }
+  @media (max-width: 630px) {
+    font-size:10px;
+  } 
+}
+.container {
+  @media (min-width: 768px) {
+    max-width:925px;
+    padding:0px;
+  }
+  @media (max-width: 768px) {
+    max-width:700px;
+    padding:0px;
+  }
+  
+}
+.navbar-brand {
+  @media (max-width: 768px) {
+    font-size:12px;
+  }
+  @media (max-width: 630px) {
+    font-size:10px;
+  } 
+}
+.search-button-elem {
+  @media (max-width: 768px) {
+    padding:2px;
+    font-size:12px;
+  }
+  @media (max-width: 630px) {
+    font-size:10px;
+  }
+}
+.search-input-elem {
+  @media (max-width: 768px) {
+    padding:2px;
+    font-size:12px;
+    height: 26px;
+  }
+  @media (max-width: 630px) {
+    font-size:10px;
+  }
+  @media (max-width: 575px) {
+    margin-top:5px;
+  }
+}
+.download-pdf {
+  @media (max-width: 768px) {
+    font-size:12px;
+  }
+  @media (max-width: 630px) {
+    font-size:10px;
+  }
+}
+.num-pages {
+  @media (max-width: 768px) {
+    font-size:12px;
+  }
+  @media (max-width: 630px) {
+    font-size:10px;
+  }
+  @media (max-width: 445px) {
+    display:none;
+  }
+}

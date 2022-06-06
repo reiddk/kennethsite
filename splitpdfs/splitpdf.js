@@ -52,6 +52,11 @@ let booksToInfo = [
         bookTitle: 'Topics In Analysis',
         bookUrl: 'https://kennethbooks.s3.us-east-2.amazonaws.com/books/TopicsInAnalysis/TopicsInAnalysis.pdf',
         lastModifiedDate: ''
+    },
+    {
+        bookTitle: 'Interrogation of Hiroshi Oshima',
+        bookUrl: 'https://kennethbooks.s3.us-east-2.amazonaws.com/books/OshimaInterrogation/OshimaInterogation+(1).pdf',
+        lastModifiedDate: ''
     }
 ];
 

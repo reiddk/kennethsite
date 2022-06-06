@@ -14,7 +14,7 @@ declare let ga: Function;
 })
 export class BookViewComponent implements OnInit, OnDestroy {
 
-    @ViewChild(PdfViewerComponent, { static: false }) private pdfComponent: PdfViewerComponent;
+    @ViewChild(PdfViewerComponent, { static: true }) private pdfComponent: PdfViewerComponent;
 
     bookInfoSub: Subscription;
     routerSub: Subscription;
@@ -32,13 +32,14 @@ export class BookViewComponent implements OnInit, OnDestroy {
     mobileShow: boolean = false;
     bookURLname: string = '';
     warning: string = '';
+    loadingPercentage: string = '0%';
     warningShow: boolean = true;
 
     constructor(private storageService: StorageService, private route: ActivatedRoute, private location: Location) { }
 
     search() {
         const stringToSearch = this.stringToSearch;
-        this.pdfComponent.pdfFindController.executeCommand('find', {
+        this.pdfComponent.pdfFindController.executeCommand('findagain', {
             caseSensitive: false, findPrevious: undefined, highlightAll: true, phraseSearch: true, query: stringToSearch
         });
     }
@@ -46,6 +47,12 @@ export class BookViewComponent implements OnInit, OnDestroy {
     nextPrevPage(num) {
         if (this.pdfPage + num > 0 && this.pdfPage + num <= this.numberOfPages) {
             this.pdfPage += num;
+        }
+    }
+
+    onProgress($event) {
+        if ($event && $event.loaded && $event.total) {
+            this.loadingPercentage = `${Math.round($event.loaded/$event.total * 100)}%`;
         }
     }
 

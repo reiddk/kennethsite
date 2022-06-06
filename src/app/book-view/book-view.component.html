@@ -1,38 +1,39 @@
-<div class="container" style="margin-top:53px;position:absolute;">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand">{{pdfName}}</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" (click)="mobileShow=!mobileShow">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<div class="container" style="margin-top:53px;">
+  <div class="navigationbar-wrapper">
+    <div class="cell-one">
+      <div class="navbar-brand">&nbsp;&nbsp;{{pdfName}}</div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" (click)="mobileShow=!mobileShow">
+        <span class="navbar-toggler-icon"></span>
+      </button></div>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngClass]="{'show':mobileShow}">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item" *ngIf="numberOfPages">
-          {{pdfPage}}/{{numberOfPages}}&nbsp;&nbsp;
+    <div class="cell-two" id="navbarSupportedContent" [ngClass]="{'show':mobileShow}">
+      <ul class="navigation-wrapper">
+        <li class="navigation-item num-pages" *ngIf="numberOfPages">
+          {{pdfPage}}/{{numberOfPages}}
         </li>
-        <li class="nav-item">
-          <a target="_blank" href="{{pdfSource}}" (click)="downloadedBook()" download>Download PDF</a>
+        <li class="navigation-item" style="flex:2;">
+          <a class="download-pdf" target="_blank" href="{{pdfSource}}" (click)="downloadedBook()" download>Download <span class="pdf-word">PDF</span></a>
         </li>
-      </ul>
-      <ul class="navbar-nav mr-auto">
-        <li class="form-inline my-2 my-lg-0">
-          <input [(ngModel)]="stringToSearch" (keyup.enter)="search()" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="search()">Search</button>
+        <li class="navigation-item search-wrapper">
+          <div style="flex:3;"><input style="width:100%;" [(ngModel)]="stringToSearch" (keyup.enter)="search()" class="form-control mr-sm-2 search-input-elem" type="search" placeholder="Search" aria-label="Search"></div>
+          <div style="flex:1;"><button  style="width:100%;" class="btn btn-outline-success my-2 my-sm-0 search-button-elem" type="submit" (click)="search()">Search</button></div>
         </li>
-        <li class="form-inline my-2 my-lg-0" *ngIf="loadingBook">
-          <div class="lds-hourglass"></div>
+        <li class="navigation-item clickable left-arrow" [ngStyle]="{opacity: loadingBook?0:1}" (click)="nextPrevPage(-1)"><i class="arrow left black"></i><span class="prev-span">Prev</span><a href="/{{bookURLname}}/{{pdfPage-1}}"></a></li>
+        <li class="navigation-item clickable right-arrow"[ngStyle]="{opacity: loadingBook?0:1}" (click)="nextPrevPage(1)"><span  class="next-span">Next</span><i class="arrow right black"></i><a href="/{{bookURLname}}/{{pdfPage+1}}"></a></li>
+        <li class="navigation-item" [ngStyle]="{opacity: loadingBook?1:0}" style="position:relative;width:60px;">
+          <div class="loading-progress-container">
+            <div class="loading-progress" [ngStyle]="{width: loadingPercentage}"></div>
+          </div>
+          <div class="loading-percent">{{loadingPercentage}}</div>
         </li>
-        <li class="form-inline my-2 my-lg-0">&nbsp;</li>
-        <li class="form-inline my-2 my-lg-0 clickable" (click)="nextPrevPage(-1)"><i class="arrow left black"></i><span>Prev&nbsp;&nbsp;</span><a href="/{{bookURLname}}/{{pdfPage-1}}"></a></li>
-        <li class="form-inline my-2 my-lg-0 clickable" (click)="nextPrevPage(1)"><span>&nbsp;&nbsp;Next</span><i class="arrow right black"></i><a href="/{{bookURLname}}/{{pdfPage+1}}"></a></li>
       </ul>
     </div>
-  </nav>
+  </div>
   <div ng-if="warning" class="warning" [ngClass]="{'warning-show': warningShow}">{{warning}}</div>
   <div *ngIf="loadingBook">
     <pdf-viewer [zoom]="zoom" [original-size]="false" [autoresize]="true" [show-all]="true" [src]="loadingBookSource" [render-text]="true" [stick-to-page]="true"></pdf-viewer>
   </div>
   <div style="{'display':(loadingBook)?'none':'block'}">
-    <pdf-viewer (after-load-complete)="pdfInfo($event)" [zoom]="zoom" [original-size]="false" [autoresize]="true" [(page)]="pdfPage" [show-all]="true" [src]="pdfSource" [render-text]="true" [stick-to-page]="true" [external-link-target]="'blank'"></pdf-viewer>
+    <pdf-viewer (on-progress)="onProgress($event)" (after-load-complete)="pdfInfo($event)" [zoom]="zoom" [original-size]="false" [autoresize]="true" [(page)]="pdfPage" [show-all]="true" [src]="pdfSource" [render-text]="true" [stick-to-page]="true" [external-link-target]="'blank'"></pdf-viewer>
   </div>
 </div>
