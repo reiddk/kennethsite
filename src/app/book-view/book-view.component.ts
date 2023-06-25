@@ -141,7 +141,7 @@ export class BookViewComponent implements OnInit, OnDestroy {
             this.regIntervalSub = interval(500).subscribe(() => {
                 if (this.storageService.getPageForBook(book.bookTitle) !== this.pdfPage.toString()) {
                   ga('set', 'page_path', `/book/${book.bookTitle.replace(/\s/g, '-')}/${this.pdfPage.toString()}`);
-                  ga('event', 'pageview');
+                  ga('event', 'page_view');
                 }
                 this.storageService.setPageForBook(book.bookTitle, this.pdfPage.toString());
                 this.location.go(`/book/${book.bookTitle.replace(/\s/g, '-')}/${this.pdfPage.toString()}`);
@@ -176,7 +176,7 @@ export class BookViewComponent implements OnInit, OnDestroy {
                 this.setPdfPage(Number(out[2].path));
                 this.loadingBookSource = `/assets/${out[1].path}${this.pdfPage-1}.pdf`;
                 ga('set', 'page_path', `/book/${this.pdfName}/${this.pdfPage}`);
-                ga('event', 'pageview');
+                ga('event', 'page_view');
                 this.storageService.setPageForBook(this.pdfName, this.pdfPage.toString());
                 this.getPdfInfoFromRoute();
             }
