@@ -3,6 +3,10 @@
 @import "~@ng-select/ng-select/themes/default.theme.css";
 @import "~bootstrap/scss/bootstrap.scss";
 
+.pdf-wrapper {
+  display:flex;
+}
+
 pdf-viewer {
   display: block;
   height: 85vh !important;

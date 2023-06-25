@@ -34,7 +34,7 @@
   <div *ngIf="loadingBook">
     <pdf-viewer [zoom]="zoom" [original-size]="false" [autoresize]="true" [show-all]="true" [src]="loadingBookSource" [render-text]="true" [stick-to-page]="true"></pdf-viewer>
   </div>
-  <div style="{'display':(loadingBook)?'none':'block'}">
-    <pdf-viewer (on-progress)="onProgress($event)" (after-load-complete)="pdfInfo($event)" [zoom]="zoom" [original-size]="false" [autoresize]="true" [(page)]="pdfPage" [show-all]="true" [src]="pdfSource" [render-text]="true" [stick-to-page]="true" [external-link-target]="'blank'"></pdf-viewer>
+  <div class="pdf-wrapper">
+    <pdf-viewer style="max-width:1500px;margin:auto;" (on-progress)="onProgress($event)" (after-load-complete)="pdfInfo($event)" [zoom]="zoom" [original-size]="false" [autoresize]="true" [(page)]="pdfPage" [show-all]="true" [src]="pdfSource" [render-text]="true" [stick-to-page]="true" [external-link-target]="'blank'"></pdf-viewer>
   </div>
 </div>
