@@ -4,6 +4,7 @@ import { HttpClientService } from './services/httpClient.service';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 declare let ga: Function;
+declare let gtag: Function;
 
 @Component({
   selector: 'app-root',
@@ -44,8 +45,8 @@ export class AppComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.newPageSub = this.router.events.subscribe(event => {
             if (event instanceof NavigationEnd) {
-                ga('set', 'page', event.urlAfterRedirects);
-                ga('send', 'pageview');
+                gtag('set', 'page', event.urlAfterRedirects);
+                gtag('send', 'pageview');
                 if (event.url === "/") {
                     this.atHome = true;
                 } else {
