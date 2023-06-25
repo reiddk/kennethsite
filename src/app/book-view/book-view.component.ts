@@ -27,7 +27,7 @@ export class BookViewComponent implements OnInit, OnDestroy {
     pdfUpdated: string = '';
     zoom: number = 1;
     stringToSearch: string = '';
-    numberOfPages: number = 25;
+    numberOfPages: number = 1;
     loadingBook: boolean = true;
     mobileShow: boolean = false;
     bookURLname: string = '';
@@ -149,6 +149,20 @@ export class BookViewComponent implements OnInit, OnDestroy {
         }
     }
 
+    setPdfPage (pageNum, count = 0) {
+        if (count >= 50) {
+            this.pdfPage = 1;
+            return;
+        }
+        if (pageNum > this.numberOfPages) {
+            setTimeout(() => {
+                this.setPdfPage(pageNum, count+1);
+            }, 250);
+            return;
+        }
+        this.pdfPage = pageNum;
+    }
+
     ngOnInit() {
         this.bookInfos = this.storageService.booksToInfo;
         this.bookInfoSub = this.storageService.getupdatedBooksInfo().subscribe(out => {
@@ -159,7 +173,7 @@ export class BookViewComponent implements OnInit, OnDestroy {
             if (out.length === 3) {
                 this.pdfName = out[1].path.replace(/\-/g, ' ');
                 this.bookURLname = out[1].path;
-                this.pdfPage = Number(out[2].path);
+                this.setPdfPage(Number(out[2].path));
                 this.loadingBookSource = `/assets/${out[1].path}${this.pdfPage-1}.pdf`;
                 ga('set', 'page', `/book/${this.pdfName}/${this.pdfPage}`);
                 ga('send', 'pageview');
