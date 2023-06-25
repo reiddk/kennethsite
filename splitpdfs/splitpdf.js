@@ -61,8 +61,8 @@ let booksToInfo = [
 ];
 
 let folderLoc = './';
-if (fs.existsSync('../dist/kennethsite/assets')) {
-    folderLoc = '../dist/kennethsite/assets';
+if (fs.existsSync('/home/ubuntu/kennethsite/dist/kennethsite/assets')) {
+    folderLoc = '/home/ubuntu/kennethsite/dist/kennethsite/assets';
 }
 
 async function processBook(pdfDoc, bookInfo) {
