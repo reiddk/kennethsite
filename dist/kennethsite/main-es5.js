@@ -900,8 +900,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           this.newPageSub = this.router.events.subscribe(function (event) {
             if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_4__["NavigationEnd"]) {
-              ga('set', 'page', event.urlAfterRedirects);
-              ga('send', 'pageview');
+              gtag('set', 'page', event.urlAfterRedirects);
+              gtag('send', 'pageview');
 
               if (event.url === "/") {
                 _this.atHome = true;

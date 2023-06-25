@@ -429,8 +429,8 @@ let AppComponent = class AppComponent {
     ngOnInit() {
         this.newPageSub = this.router.events.subscribe(event => {
             if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_4__["NavigationEnd"]) {
-                ga('set', 'page', event.urlAfterRedirects);
-                ga('send', 'pageview');
+                gtag('set', 'page', event.urlAfterRedirects);
+                gtag('send', 'pageview');
                 if (event.url === "/") {
                     this.atHome = true;
                 }
