@@ -1372,8 +1372,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             this.regIntervalSub = Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["interval"])(500).subscribe(function () {
               if (_this4.storageService.getPageForBook(book.bookTitle) !== _this4.pdfPage.toString()) {
-                ga('set', 'page', "/book/".concat(book.bookTitle.replace(/\s/g, '-'), "/").concat(_this4.pdfPage.toString()));
-                ga('send', 'pageview');
+                ga('set', 'page_path', "/book/".concat(book.bookTitle.replace(/\s/g, '-'), "/").concat(_this4.pdfPage.toString()));
+                ga('event', 'pageview');
               }
 
               _this4.storageService.setPageForBook(book.bookTitle, _this4.pdfPage.toString());
@@ -1422,8 +1422,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               _this6.setPdfPage(Number(out[2].path));
 
               _this6.loadingBookSource = "/assets/".concat(out[1].path).concat(_this6.pdfPage - 1, ".pdf");
-              ga('set', 'page', "/book/".concat(_this6.pdfName, "/").concat(_this6.pdfPage));
-              ga('send', 'pageview');
+              ga('set', 'page_path', "/book/".concat(_this6.pdfName, "/").concat(_this6.pdfPage));
+              ga('event', 'pageview');
 
               _this6.storageService.setPageForBook(_this6.pdfName, _this6.pdfPage.toString());
 
