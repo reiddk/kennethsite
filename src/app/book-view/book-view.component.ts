@@ -5,6 +5,7 @@ import { StorageService, bookInfo } from '../services/storage.service';
 import { ActivatedRoute } from '@angular/router';
 import { PdfViewerComponent } from 'ng2-pdf-viewer';
 declare let ga: Function;
+declare let gtag: Function;
 
 @Component({
     selector: 'app-book-view',
@@ -63,7 +64,7 @@ export class BookViewComponent implements OnInit, OnDestroy {
     }
 
     downloadedBook() {
-        ga('send', 'event', 'book-download', this.pdfName);
+        gtag('send', 'event', 'book-download', this.pdfName);
     }
 
     linkCopied() {
@@ -140,8 +141,8 @@ export class BookViewComponent implements OnInit, OnDestroy {
             }
             this.regIntervalSub = interval(500).subscribe(() => {
                 if (this.storageService.getPageForBook(book.bookTitle) !== this.pdfPage.toString()) {
-                  ga('set', 'page_path', `/book/${book.bookTitle.replace(/\s/g, '-')}/${this.pdfPage.toString()}`);
-                  ga('event', 'page_view');
+                    gtag('set', 'page_path', `/book/${book.bookTitle.replace(/\s/g, '-')}/${this.pdfPage.toString()}`);
+                    gtag('event', 'page_view');
                 }
                 this.storageService.setPageForBook(book.bookTitle, this.pdfPage.toString());
                 this.location.go(`/book/${book.bookTitle.replace(/\s/g, '-')}/${this.pdfPage.toString()}`);
@@ -175,8 +176,8 @@ export class BookViewComponent implements OnInit, OnDestroy {
                 this.bookURLname = out[1].path;
                 this.setPdfPage(Number(out[2].path));
                 this.loadingBookSource = `/assets/${out[1].path}${this.pdfPage-1}.pdf`;
-                ga('set', 'page_path', `/book/${this.pdfName}/${this.pdfPage}`);
-                ga('event', 'page_view');
+                gtag('set', 'page_path', `/book/${this.pdfName}/${this.pdfPage}`);
+                gtag('event', 'page_view');
                 this.storageService.setPageForBook(this.pdfName, this.pdfPage.toString());
                 this.getPdfInfoFromRoute();
             }
