@@ -10,52 +10,52 @@ const { exec } = require("child_process");
 let booksToInfo = [
     {
         bookTitle: 'One Variable Advanced Calculus',
-        bookUrl: 'https://kennethbooks.s3.us-east-2.amazonaws.com/books/AdvancedCalculusSV/AdvancedCalculusSV.pdf',
+        bookUrl: 'https://d2orq2otfnmxdd.cloudfront.net/books/AdvancedCalculusSV/AdvancedCalculusSV.pdf',
         lastModifiedDate: ''
     },
     {
         bookTitle: 'Real and Abstract Analysis',
-        bookUrl: 'https://kennethbooks.s3.us-east-2.amazonaws.com/books/Analysis/Analysis.pdf',
+        bookUrl: 'https://d2orq2otfnmxdd.cloudfront.net/books/Analysis/Analysis.pdf',
         lastModifiedDate: ''
     },
     {
         bookTitle: 'Calculus of One and Many Variables',
-        bookUrl: 'https://kennethbooks.s3.us-east-2.amazonaws.com/books/CalculusOneAndManyVariables/CalculusOneAndManyVariables.pdf',
+        bookUrl: 'https://d2orq2otfnmxdd.cloudfront.net/books/CalculusOneAndManyVariables/CalculusOneAndManyVariables.pdf',
         lastModifiedDate: ''
     },
     {
         bookTitle: 'Calculus of Real and Complex Variables',
-        bookUrl: 'https://kennethbooks.s3.us-east-2.amazonaws.com/books/ComplexAnalysis/ComplexAnalysis.pdf',
+        bookUrl: 'https://d2orq2otfnmxdd.cloudfront.net/books/ComplexAnalysis/ComplexAnalysis.pdf',
         lastModifiedDate: ''
     },
     {
         bookTitle: 'Elementary Linear Algebra',
-        bookUrl: 'https://kennethbooks.s3.us-east-2.amazonaws.com/books/ElementaryLinearAlgebra/ElementaryLinearAlgebra.pdf',
+        bookUrl: 'https://d2orq2otfnmxdd.cloudfront.net/books/ElementaryLinearAlgebra/ElementaryLinearAlgebra.pdf',
         lastModifiedDate: ''
     },
     {
         bookTitle: 'Engineering Math',
-        bookUrl: 'https://kennethbooks.s3.us-east-2.amazonaws.com/books/EngineeringMath/EngineeringMath.pdf',
+        bookUrl: 'https://d2orq2otfnmxdd.cloudfront.net/books/EngineeringMath/EngineeringMath.pdf',
         lastModifiedDate: ''
     },
     {
         bookTitle: 'Linear Algebra And Analysis',
-        bookUrl: 'https://kennethbooks.s3.us-east-2.amazonaws.com/books/LinearAlgebraAndAnalysis/LinearAlgebraAndAnalysis.pdf',
+        bookUrl: 'https://d2orq2otfnmxdd.cloudfront.net/books/LinearAlgebraAndAnalysis/LinearAlgebraAndAnalysis.pdf',
         lastModifiedDate: ''
     },
     {
         bookTitle: 'Linear Algebra, Theory And Applications',
-        bookUrl: 'https://kennethbooks.s3.us-east-2.amazonaws.com/books/Linearalgebra/Linearalgebra.pdf',
+        bookUrl: 'https://d2orq2otfnmxdd.cloudfront.net/books/Linearalgebra/Linearalgebra.pdf',
         lastModifiedDate: ''
     },
     {
         bookTitle: 'Topics In Analysis',
-        bookUrl: 'https://kennethbooks.s3.us-east-2.amazonaws.com/books/TopicsInAnalysis/TopicsInAnalysis.pdf',
+        bookUrl: 'https://d2orq2otfnmxdd.cloudfront.net/books/TopicsInAnalysis/TopicsInAnalysis.pdf',
         lastModifiedDate: ''
     },
     {
         bookTitle: 'Interrogation of Hiroshi Oshima',
-        bookUrl: 'https://kennethbooks.s3.us-east-2.amazonaws.com/books/OshimaInterrogation/OshimaInterogation+(1).pdf',
+        bookUrl: 'https://d2orq2otfnmxdd.cloudfront.net/books/OshimaInterrogation/OshimaInterogation+(1).pdf',
         lastModifiedDate: ''
     }
 ];

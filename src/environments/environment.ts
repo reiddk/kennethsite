@@ -4,5 +4,5 @@
 
 export const environment = {
     production: false,
-    bookLocation: 'https://kennethbooks.s3.us-east-2.amazonaws.com/books/'
+    bookLocation: 'https://d2orq2otfnmxdd.cloudfront.net/books/'
 };

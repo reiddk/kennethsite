@@ -21,62 +21,62 @@ export class StorageService {
     booksToInfo: bookInfo[] = [
         {
             bookTitle: 'One Variable Advanced Calculus',
-            bookUrl: 'https://kennethbooks.s3.us-east-2.amazonaws.com/books/AdvancedCalculusSV/AdvancedCalculusSV.pdf',
+            bookUrl: 'https://d2orq2otfnmxdd.cloudfront.net/books/AdvancedCalculusSV/AdvancedCalculusSV.pdf',
             lastModifiedDate: '',
-            bookCover: 'https://kennethbooks.s3.us-east-2.amazonaws.com/cover/single-variable-advanced.jpg',
+            bookCover: 'https://d2orq2otfnmxdd.cloudfront.net/cover/single-variable-advanced.jpg',
             purchaseLink: 'https://www.amazon.com/dp/B09GZM9JMR?ref_=pe_3052080_397514860',
             purchaseMessage: 'Purchase a physical copy'
         },
         {
             bookTitle: 'Real and Abstract Analysis',
-            bookUrl: 'https://kennethbooks.s3.us-east-2.amazonaws.com/books/Analysis/Analysis.pdf',
+            bookUrl: 'https://d2orq2otfnmxdd.cloudfront.net/books/Analysis/Analysis.pdf',
             lastModifiedDate: ''
         },
         {
             bookTitle: 'Calculus of One and Many Variables',
-            bookUrl: 'https://kennethbooks.s3.us-east-2.amazonaws.com/books/CalculusOneAndManyVariables/CalculusOneAndManyVariables.pdf',
+            bookUrl: 'https://d2orq2otfnmxdd.cloudfront.net/books/CalculusOneAndManyVariables/CalculusOneAndManyVariables.pdf',
             lastModifiedDate: '',
-            bookCover: 'https://kennethbooks.s3.us-east-2.amazonaws.com/cover/calculus-one-many.jpg',
+            bookCover: 'https://d2orq2otfnmxdd.cloudfront.net/cover/calculus-one-many.jpg',
             purchaseLink: 'https://www.amazon.com/dp/B09JJGWSP6?ref_=pe_3052080_397514860',
             purchaseMessage: 'Purchase a physical copy'
         },
         {
             bookTitle: 'Calculus of Real and Complex Variables',
-            bookUrl: 'https://kennethbooks.s3.us-east-2.amazonaws.com/books/ComplexAnalysis/ComplexAnalysis.pdf',
+            bookUrl: 'https://d2orq2otfnmxdd.cloudfront.net/books/ComplexAnalysis/ComplexAnalysis.pdf',
             lastModifiedDate: ''
         },
         {
             bookTitle: 'Elementary Linear Algebra',
-            bookUrl: 'https://kennethbooks.s3.us-east-2.amazonaws.com/books/ElementaryLinearAlgebra/ElementaryLinearAlgebra.pdf',
+            bookUrl: 'https://d2orq2otfnmxdd.cloudfront.net/books/ElementaryLinearAlgebra/ElementaryLinearAlgebra.pdf',
             lastModifiedDate: '',
-            bookCover: 'https://kennethbooks.s3.us-east-2.amazonaws.com/cover/linear-algebra.jpg',
+            bookCover: 'https://d2orq2otfnmxdd.cloudfront.net/cover/linear-algebra.jpg',
             purchaseLink: 'https://www.amazon.com/dp/B09FC8CLFK?ref_=pe_3052080_397514860',
             purchaseMessage: 'Purchase a physical copy'
         },
         {
             bookTitle: 'Engineering Math',
-            bookUrl: 'https://kennethbooks.s3.us-east-2.amazonaws.com/books/EngineeringMath/EngineeringMath.pdf',
+            bookUrl: 'https://d2orq2otfnmxdd.cloudfront.net/books/EngineeringMath/EngineeringMath.pdf',
             lastModifiedDate: ''
         },
         {
             bookTitle: 'Linear Algebra And Analysis',
-            bookUrl: 'https://kennethbooks.s3.us-east-2.amazonaws.com/books/LinearAlgebraAndAnalysis/LinearAlgebraAndAnalysis.pdf',
+            bookUrl: 'https://d2orq2otfnmxdd.cloudfront.net/books/LinearAlgebraAndAnalysis/LinearAlgebraAndAnalysis.pdf',
             lastModifiedDate: ''
         },
         {
             bookTitle: 'Linear Algebra, Theory And Applications',
-            bookUrl: 'https://kennethbooks.s3.us-east-2.amazonaws.com/books/Linearalgebra/Linearalgebra.pdf',
+            bookUrl: 'https://d2orq2otfnmxdd.cloudfront.net/books/Linearalgebra/Linearalgebra.pdf',
             lastModifiedDate: ''
         },
         {
             bookTitle: 'Topics In Analysis',
-            bookUrl: 'https://kennethbooks.s3.us-east-2.amazonaws.com/books/TopicsInAnalysis/TopicsInAnalysis.pdf',
+            bookUrl: 'https://d2orq2otfnmxdd.cloudfront.net/books/TopicsInAnalysis/TopicsInAnalysis.pdf',
             lastModifiedDate: '',
             warning: 'It is best to avoid the Topics in Analysis collection unless  you are interested in something which is only found there. Most things of interest are presented better in the other books.'
         },
         {
             bookTitle: 'Interrogation of Hiroshi Oshima',
-            bookUrl: 'https://kennethbooks.s3.us-east-2.amazonaws.com/books/OshimaInterrogation/OshimaInterogation+(1).pdf',
+            bookUrl: 'https://d2orq2otfnmxdd.cloudfront.net/books/OshimaInterrogation/OshimaInterogation+(1).pdf',
             lastModifiedDate: ''
         }
     ];
